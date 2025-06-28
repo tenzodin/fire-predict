@@ -4,11 +4,8 @@ import logo from "../img/logo_small.png";          // ← import the logo
 import "./index.css";
 import "leaflet/dist/leaflet.css";
 import MapComponent from "./components/Map";
-<<<<<<< HEAD
 import TypingAnimatedText from "./components/TypingText";
 import CallToAction from "./components/CallToAction";
-=======
->>>>>>> 5f6f5a8508a1ef94de9aafa025224a2eb778e62d
 
 
 function App() {
@@ -67,12 +64,9 @@ function App() {
 
         {/* ---------- main ---------- */}
         <main className="mx-auto mt-8 max-w-4xl p-6">
-<<<<<<< HEAD
             <div className="mt-4 mb-8 flex justify-center">
   <TypingAnimatedText />
 </div>
-=======
->>>>>>> 5f6f5a8508a1ef94de9aafa025224a2eb778e62d
           {/* upload card */}
           <div className="rounded-lg bg-gray-800/70 backdrop-blur-md p-6 shadow-md">
           <p className="text-center text-gray-300">
@@ -133,7 +127,6 @@ function App() {
               </table>
             )}
           </div>
-<<<<<<< HEAD
            <CallToAction />
         </main>
         <footer className="bg-gray-900 text-gray-400 py-6 mt-12 border-t border-gray-700">
@@ -150,9 +143,6 @@ function App() {
   </div>
 </footer>
 
-=======
-        </main>
->>>>>>> 5f6f5a8508a1ef94de9aafa025224a2eb778e62d
       </div>
     </div>
   );
