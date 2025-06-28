@@ -161,11 +161,11 @@ forest_fire_model_aggregated.pkl
 import pandas as pd
 import pickle
 
-# Load the model
+#Load the model
 with open("path/to/forest_fire_model_aggregated.pkl", "rb") as f:
     model = pickle.load(f)
 
-# Example input
+#Example input
 X_new = pd.DataFrame([{
     "Tm": 17.5,                # Mean temperature °C
     "Tx": 32.0,                # Max temperature °C
@@ -177,7 +177,7 @@ X_new = pd.DataFrame([{
     "Year": 2024               # Year
 }])
 
-# Predict
+#Predict
 y_pred = model.predict(X_new)
 print("Predicted fires:", y_pred)
 
