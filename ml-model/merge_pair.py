@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load weather data (May–July for all years)
-weather_file = "ml-model/merged_weather_data_2000_2024_May.csv"
+weather_file = "ml-model/merged_weather_data_2000_2024.csv"
 df_weather = pd.read_csv(weather_file)
 
 # Load fire counts data
