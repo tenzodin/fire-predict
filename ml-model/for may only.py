@@ -21,9 +21,9 @@ print("✅ Cleaned data preview:")
 print(df.head())
 
 # ✅ Save cleaned station-level file
-output_file = "weather_may_2025_clean.csv"
-df.to_csv(output_file, index=False)
-print(f"✅ Cleaned CSV saved: {output_file}")
+# output_file = "weather_may_2025_clean.csv"
+# df.to_csv(output_file, index=False)
+# print(f"✅ Cleaned CSV saved: {output_file}")
 
 # ✅ Create aggregated row for prediction
 agg = df[["Tm", "Tx", "Tn", "S", "P", "CDD"]].mean().to_frame().T
