@@ -32,14 +32,14 @@ An AI-powered web app that predicts and visualizes wildfire risk across Ontario 
 
 ## 🧠 How It Works
 
-```mermaid
-graph LR
-A[CSV Upload - Frontend] --> B[FastAPI Backend]
-B --> C[ML Model (.pkl)]
-C --> D[Predicted Fire Tier]
-D --> E[GPT Explanation]
-E --> F[Color Map Marker + Tooltip]
-````
+graph TD
+  A[User Uploads CSV] --> B[FastAPI Backend]
+  B --> C[ML Model (.pkl)]
+  C --> D[Predicted Fire Count]
+  D --> E[Frontend Receives Prediction]
+  E --> F[Animated Number Display]
+  E --> G[Map Color Update]
+  G --> H[CircleMarker Color & Tooltip]
 
 ---
 
