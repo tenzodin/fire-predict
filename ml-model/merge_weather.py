@@ -4,13 +4,13 @@ import os
 import re
 
 # Folder where you saved all your CSVs
-folder =  "/Users/wentaozhang/Downloads/solutionhack1" 
+folder =  "/Users/wentaozhang/Downloads/solutionhack1/weather" 
 
 # Get all CSV files
 files = glob.glob(os.path.join(folder, "*.csv"))
 
 # Map month numbers to names
-month_map = {"06": "June", "07": "July", "08": "August"}
+month_map = {"05":"May","06": "June", "07": "July", "08": "August"}
 
 # List to hold DataFrames
 dfs = []
@@ -45,6 +45,6 @@ for file in files:
 result = pd.concat(dfs, ignore_index=True)
 
 # Save to CSV
-result.to_csv("merged_weather_data_2000_2024.csv", index=False)
+result.to_csv("merged_weather_data_2000_2024_May.csv", index=False)
 
-print("✅ Merged CSV created: merged_weather_data.csv")
+print("✅ Merged CSV created: merged_weather_data_May.csv")
