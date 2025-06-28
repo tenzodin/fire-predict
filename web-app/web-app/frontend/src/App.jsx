@@ -6,6 +6,8 @@ import TypingAnimatedText   from "./components/TypingText";
 import CallToAction         from "./components/CallToAction";
 import logo                 from "../img/logo_small.png";
 import LoadingOverlay from "./components/LoadingOverlay";
+import AnimatedNumber from "./components/AnimatedNumber";
+
 
 import "./index.css";
 import "leaflet/dist/leaflet.css";
@@ -118,7 +120,10 @@ useEffect(() => {
           {prediction !== null && (
             <div className="mt-6 text-center">
               <p className="text-gray-300">Predicted wildfires next month:</p>
-              <p className="text-5xl font-bold text-red-400">{prediction.toFixed(0)}</p>
+              <p className="text-5xl font-bold text-red-400">
+  <AnimatedNumber value={prediction} />
+</p>
+
             </div>
           )}
         </section>
