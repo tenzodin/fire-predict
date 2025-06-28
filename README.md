@@ -125,12 +125,90 @@ Each row = one ~~location~~ station in Ontario
 	•	Data ingestion + preprocessing scripts working
 
 🛠️ Next steps before pitch:
-	•	Train regression/classification model to predict monthly fire occurrence tiers
+	•	~~Train regression/classification model to predict monthly fire occurrence tiers~~
 	•	Connect ML predictions to backend API
 	•	Generate example predictions for key stations
 	•	Display risk tiers on the Leaflet map
 	•	Polish frontend upload + result display
 ---
+**📈 Fire Prediction Model**
+
+This project includes a **Random Forest Regressor** trained to predict the **monthly number of wildfires in Ontario** based on aggregated weather data.
+
+⸻
+
+🎯 **How It Works**
+
+**Input:**
+A single record (or batch) of monthly weather data, including:
+	•	Mean / max / min temperature
+	•	Rainfall & precipitation
+	•	Cooling Degree Days
+	•	Month & year
+
+Output:
+A predicted number of fires for that month.
+
+⸻
+
+🛠️ **Model File**
+
+The trained model is saved as:
+forest_fire_model_aggregated.pkl
+
+🧑‍💻 **Sample Python Code**
+
+import pandas as pd
+import pickle
+
+# Load the model
+with open("path/to/forest_fire_model_aggregated.pkl", "rb") as f:
+    model = pickle.load(f)
+
+# Example input
+X_new = pd.DataFrame([{
+    "Tm": 17.5,                # Mean temperature °C
+    "Tx": 32.0,                # Max temperature °C
+    "Tn": 3.0,                 # Min temperature °C
+    "S": 0.0,                  # Rainfall mm
+    "P": 60.0,                 # Precipitation mm
+    "CDD": 25.0,               # Cooling Degree Days
+    "Weather_Month_Num": 6,    # Month number (May=5, June=6, July=7)
+    "Year": 2024               # Year
+}])
+
+# Predict
+y_pred = model.predict(X_new)
+print("Predicted fires:", y_pred)
+
+📊 **Feature Details**
+**Feature					Description**
+Tm					Mean temperature (°C)
+Tx					Max temperature (°C)
+Tn					Min temperature (°C)
+S					Total Rainfall (mm)
+P					Total Precipitation (mm)
+CDD					Cooling Degree Days
+Weather_Month_Num			Month of weather data (May=5, June=6, July=7)
+Year					Year of observation
+
+**Note**: All columns must exist when calling .predict(). Missing numeric values can be NaN and will be imputed automatically.
+
+🎨 **Frontend Integration**
+	•	Round predictions to whole numbers.
+	•	Bucket predictions into risk levels:
+	•	<50 fires = Low
+	•	50–200 fires = Medium
+	•	>200 fires = High
+	•	Display on the map using color codes.
+
+⸻
+
+🔄 **Future Enhancements**
+	•	Integrate live weather APIs (e.g., OpenWeatherMap)
+	•	Use station-level fire counts
+	•	Add vegetation, drought indices, or satellite data
+	•	Retrain with expanded datasets
 
 ## 📜 License
 
