@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 
 # Load aggregated dataset
-df = pd.read_csv("weather_fire_aggregated.csv")
+df = pd.read_csv("fire-predict/ml-model/weather_fire_aggregated.csv")
 print("✅ Aggregated data loaded:")
 print(df.head())
 
@@ -33,6 +33,7 @@ print(f"✅ MAE on test set: {mae:.2f}")
 
 # Save model
 import pickle
-with open("forest_fire_model_aggregated.pkl", "wb") as f:
+save_path = "users/wentaozhang/downloads/solutionhack1"
+with open(save_path,"wb") as f:
     pickle.dump(model, f)
-print("✅ Model saved as forest_fire_model_aggregated.pkl")
+print("✅ Model saved at users/wentaozhang/downloads/solutionhack1")
