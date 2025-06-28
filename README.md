@@ -122,7 +122,12 @@ Each row = one ~~location~~ station in Ontario
 
 ✅ Core pipeline complete:
 	•	Cleaned historical weather and fire data (2000–2024)
-	•	Merged dataset ready for training
+ 		1. [Data merge script]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merge_weather.py)
+   		2. [Output.csv]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merged_weather_data_2000_2024.csv)
+	•	Cleaned historical number of fires per month data (2000-2023)
+ 		1. [Date clean up script]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean_up.py)
+   		2. [Output.csv]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean.csv)
+ 	•Merged dataset ready for training
 	•	Data ingestion + preprocessing scripts working
 
 🛠️ Next steps before pitch:
