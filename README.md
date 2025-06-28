@@ -121,14 +121,15 @@ Each row = one ~~location~~ station in Ontario
 ## 🏁 Status
 
 ✅ Core pipeline complete:
-	•	Cleaned historical weather and fire data (2000–2024)
- 		1. [Data merge script](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merge_weather.py)
-   		2. [Output.csv](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merged_weather_data_2000_2024.csv)
-	•	Cleaned historical number of fires per month data (2000-2023)
- 		1. [Date clean up script](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean_up.py)
-   		2. [Output.csv](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean.csv)
- 	•Merged dataset ready for training
-	•	Data ingestion + preprocessing scripts working
+	•	Cleaned historical weather and fire data (2000–2024)  
+ 		1. [Data merge script]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merge_weather.py)  
+   		2. [Output.csv]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merged_weather_data_2000_2024.csv)  
+	•	Cleaned historical number of fires per month data (2000-2023)  
+ 		1. [Date clean up script]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean_up.py)  
+   		2. [Output.csv]:(https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean.csv)  
+ 	•Merged dataset ready for training 
+		1.  [Merge weather data and number of fires](https://github.com/tenzodin/fire-predict/blob/821c657d398b6d6f0ca18d96861acc5a18297b6f/ml-model/merge_pair.py)  
+  		2. [Merged data output.csv](https://github.com/tenzodin/fire-predict/blob/821c657d398b6d6f0ca18d96861acc5a18297b6f/ml-model/weather_fire_merged_shifted.csv) 
 
 🛠️ Next steps before pitch:
 	•	~~Train regression/classification model to predict monthly fire occurrence tiers~~
