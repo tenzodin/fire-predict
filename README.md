@@ -1,29 +1,32 @@
 # 🔥 Forest Fire Predictor
 
-An AI-powered web app that predicts and visualizes wildfire risk across geographic locations based on user-uploaded environmental data.
+An AI-powered web app that predicts and visualizes wildfire risk across Ontario based on user-uploaded weather data.
+
+---
+
+## 🌍 What It Does
+
+1. Upload a `.csv` file containing weather data for Ontario stations.
+2. A machine learning model predicts wildfire occurrence **tiers** (Low / Moderate / High / Extreme) for the next month.
+3. Results are visualized on an interactive Leaflet map with **color-coded markers** and a **visible legend**:
+   - 🟢 Low Risk — Fewer than 50 fires — Routine local response
+   - 🟡 Moderate — 50–150 fires — Regional resource prep
+   - 🟠 High — 150–300 fires — Full deployment
+   - 🔴 Extreme — Over 300 fires — National/international coordination
+4. Each marker includes a **GPT-generated explanation and prevention tip**.
 
 ---
 
 ## 🚀 Tech Stack
 
-- 🧠 **ML Model**: Random Forest Classifier (`scikit-learn`)
-- ⚙️ **Backend**: FastAPI (Python)
-- 🌐 **Frontend**: React + Tailwind CSS + Leaflet.js
-- 🤖 **AI Explanation**: OpenAI GPT (natural language fire risk summaries)
-- ☁️ **Hosting**: Vercel (frontend), Render (backend)
-
----
-
-## 🌍 What It Does - updated June 28
-
-1. Upload a `.csv` file containing weather data for selected locations (temperature, precipitation, etc.).~~location + environmental data (e.g. temperature, humidity, wind)~~
-2. The ML model returns a **predicted wildfire occurrence tier** (e.g., low / medium / high) for the next month in Ontario.~~**fire risk score** (probability from 0 to 1) for each point~~
-3. The frontend renders a **color-coded map** using Leaflet:
-   - 🟢 Low Risk	Fewer than 50		Routine local response
-   - 🟡 Moderate	50–150			Pre-position resources, regional support
-   - 🟠 High Risk	150–300			Full deployment, interagency coordination
-   - 🔴 Extreme	Over 300		National/international assistance
-4. Each point also gets a **GPT-generated explanation and prevention tip**
+| Tool/Library         | Usage                                |
+|----------------------|----------------------------------------|
+| 🧠 `scikit-learn`    | ML model (Random Forest Regressor)     |
+| ⚙️ FastAPI (Python)  | Backend API                             |
+| 🌐 React + Tailwind  | Frontend web app                       |
+| 🗺️ React-Leaflet     | Interactive maps                        |
+| 🤖 OpenAI GPT        | Natural language fire risk summaries    |
+| ☁️ Vercel + Render   | Frontend and backend hosting            |
 
 ---
 
@@ -31,27 +34,27 @@ An AI-powered web app that predicts and visualizes wildfire risk across geograph
 
 ```mermaid
 graph LR
-A(User CSV Upload - Frontend) --> B(FastAPI API - Backend)
-B --> C(ML Model - .pkl)
-C --> D(Fire Risk Probabilities)
-D --> E(OpenAI GPT Explanation)
-E --> F(Map + Tooltip Display - Frontend)
-
+A[CSV Upload - Frontend] --> B[FastAPI Backend]
+B --> C[ML Model (.pkl)]
+C --> D[Predicted Fire Tier]
+D --> E[GPT Explanation]
+E --> F[Color Map Marker + Tooltip]
+````
 
 ---
 
-## 🗂️ Project Structure
+## 📁 Project Structure
 
 ```
 forest-fire-predictor/
-├── ml-model/              # ML model training scripts
+├── ml-model/              
 │   ├── train_model.py
 │   ├── merge_weather_fire.py
 │   ├── forest_fire_merged.pkl
 │   └── fire_counts_clean.csv
 ├── web-app/
-│   ├── frontend/          # React + Leaflet map UI
-│   └── backend/           # FastAPI API
+│   ├── frontend/   # React + Tailwind + Leaflet
+│   └── backend/    # FastAPI
 │       ├── main.py
 │       ├── model_loader.py
 │       └── requirements.txt
@@ -78,165 +81,154 @@ npm install
 npm run dev
 ```
 
+> Set `.env` in `frontend/`:
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
 ---
 
 ## 📁 Sample CSV Format
-
-Your input CSV should look like this:
 
 ```csv
 Station,TempMax,TempMin,TempMean,Precipitation,CoolingDegreeDays
 Pickle Lake,32,5,18,65,45
 Red Lake,30,6,17,70,50
 Sioux Lookout,33,4,19,80,60
-
 ```
 
-Each row = one ~~location~~ station in Ontario
-🔥 Output = ~~fire risk score (0–1)~~ **predicted wildfire tier** + natural language explanation
+Each row = 1 Ontario station
+📈 Output = wildfire tier + natural language explanation
 
 ---
 
 ## 🤖 Example GPT Explanation
 
-> “This location has ~~an 83% fire risk~~ **to be updated** due to high temperatures (34°C), low humidity (12%), and strong winds. Avoid open flames and clear dry brush nearby.”
+> “This location is at **high risk** due to elevated temperatures (34°C), low humidity, and low rainfall. Avoid open flames and clear dry brush near your property.”
+
+---
+
+## 🗺️ Interactive Map Features
+
+* Leaflet map renders all Ontario fire stations
+* CircleMarkers color-coded by predicted fire count:
+
+  * 🟢 0–49
+  * 🟡 50–99
+  * 🟠 100–149
+  * 🔴 150+
+* Hover tooltip shows station name + predicted fire count
+* Legend explains color scale
+* Smooth color fade transitions using CSS
+
+---
+
+## 📈 Fire Prediction Model
+
+Trained with a **Random Forest Regressor** to predict monthly fire counts from historical weather.
+
+### 🔢 Features
+
+| Feature | Description           |
+| ------- | --------------------- |
+| Tm      | Mean Temperature (°C) |
+| Tx      | Max Temperature (°C)  |
+| Tn      | Min Temperature (°C)  |
+| S       | Rainfall (mm)         |
+| P       | Precipitation (mm)    |
+| CDD     | Cooling Degree Days   |
+| Month   | Weather month number  |
+| Year    | Year of record        |
+
+### 🔍 Prediction Output
+
+A fire count (rounded) → Mapped to Risk Tier:
+
+| Risk Tier   | Fires per Month | Response Level                    |
+| ----------- | --------------- | --------------------------------- |
+| 🟢 Low      | 0–49            | Routine local response            |
+| 🟡 Moderate | 50–150          | Pre-position regional resources   |
+| 🟠 High     | 150–300         | Full deployment                   |
+| 🔴 Extreme  | Over 300        | National/international assistance |
+
+---
+
+## 🧪 Sample Model Usage
+
+```python
+import pandas as pd
+import pickle
+
+# Load model
+with open("forest_fire_model_aggregated.pkl", "rb") as f:
+    model = pickle.load(f)
+
+# Predict
+X_new = pd.DataFrame([{
+    "Tm": 17.5,
+    "Tx": 32.0,
+    "Tn": 3.0,
+    "S": 0.0,
+    "P": 60.0,
+    "CDD": 25.0,
+    "Weather_Month_Num": 6,
+    "Year": 2024
+}])
+
+y_pred = model.predict(X_new)
+print("Predicted fires:", y_pred)
+```
+
+---
+
+## ✅ Current Status
+
+✔️ Core pipeline complete:
+
+* ✅ Cleaned weather + fire count datasets (2000–2023)
+* ✅ Merged and aggregated per station per month
+* ✅ Trained ML model on aggregated dataset
+* ✅ Backend integration and prediction API
+* ✅ CSV upload + file parsing working
+* ✅ Map color visualization and tooltips
+
+---
+
+## ⏳ UX Features
+
+* Animated splash loader (\~1.5s)
+* Prediction button disables on click
+* RingLoader spinner during model run
+* Fire count animates from 0 to predicted value
+
+---
+
+## 🔮 Future Enhancements
+
+* 🔁 Integrate live weather APIs (e.g., OpenWeatherMap)
+* 🛰️ Add satellite/vegetation data
+* 🔄 Monthly model retraining
+* 📊 Add dashboard for trend analysis
 
 ---
 
 ## 📍 Live Demo
 
-* **Frontend**: [https://your-frontend.vercel.app](#)
-* **Backend API**: [https://your-backend.onrender.com](#)
+* **Frontend**: [https://your-frontend.vercel.app](http://fire-predict.vercel.app/)](#)
 
 ---
 
-## 🧑‍💻 Team
+## 👥 Team
 
-* **Madison Zhang & Preethi** – ML & Backend
-* **Tenzing Woser** – Frontend Development
-* **\[Teammate 3]** – AI Integration / GPT
+| Role              | Member                  |
+| ----------------- | ----------------------- |
+| 🔧 ML & Backend   | Madison Zhang & Preethi |
+| 💻 Frontend UI    | Tenzing Woser           |
+| 🤖 AI Integration | \[Teammate 3]           |
 
 ---
-
-## 🏁 Status
-
-✅ Core pipeline complete: 
-
- •	**Cleaned historical weather and fire data (2000–2024)**  
- 		1. [Data merge script](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merge_weather.py)  
-   		2. [Output.csv](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merged_weather_data_2000_2024.csv)  
-
- •	**Cleaned historical number of fires per month data (2000-2023)**  
- 		1. [Data clean up script](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean_up.py)  
-   		2. [Output.csv](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean.csv)  
- 
-
- •	**Merged dataset ready for training (2000 to 2023)**  
-		1.  [Merge weather data and number of fires script](https://github.com/tenzodin/fire-predict/blob/821c657d398b6d6f0ca18d96861acc5a18297b6f/ml-model/merge_pair.py)  
-  		2. [Merged data output.csv](https://github.com/tenzodin/fire-predict/blob/821c657d398b6d6f0ca18d96861acc5a18297b6f/ml-model/weather_fire_merged_shifted.csv)  
-       		3. [Aggregate per station data in one line per month script](https://github.com/tenzodin/fire-predict/blob/3353aa610dcb6f07ea48e4ba8a33c171ec5d8df2/ml-model/aggregate_weather_fire.py)  
-     		4.  [Aggregated data output.csv](https://github.com/tenzodin/fire-predict/blob/3353aa610dcb6f07ea48e4ba8a33c171ec5d8df2/ml-model/weather_fire_aggregated.csv)  
-
-Note: number of fires in 2023 were not specified by each month - therefore excluded from the final dataset to train ML Model
-
-•	**Feed dataset to ML model:**[Training script](https://github.com/tenzodin/fire-predict/blob/dd1a6c79fa362b41da64c9e7e8e2f9dfaf2db26b/ml-model/train_model_aggregated.py)  
-
-•	**Test the model with demo data**  
-		1. [Test data clean up script](https://github.com/tenzodin/fire-predict/blob/8c70b2874b4cc8b2d6693c17a6b8d0d268c0c787/ml-model/for%20may%20only.py)  
-  		2. [Output.csv](https://github.com/tenzodin/fire-predict/blob/8c70b2874b4cc8b2d6693c17a6b8d0d268c0c787/ml-model/weather_may_2025_aggregated.csv)  
-    		3. [Run with the ML model script](https://github.com/tenzodin/fire-predict/blob/8c70b2874b4cc8b2d6693c17a6b8d0d268c0c787/ml-model/test.py)  
-
-
-🛠️ Next steps before pitch:
-	•	~~Train regression/classification model to predict monthly fire occurrence tiers~~
-	•	~~Connect ML predictions to backend API~~
-	•	~~Generate example predictions for key stations~~
-	•	Display risk tiers on the Leaflet map
-	•	Polish frontend upload + result display
----
-**📈 Fire Prediction Model**
-
-This project includes a **Random Forest Regressor** trained to predict the **monthly number of wildfires in Ontario** based on aggregated weather data.
-
-⸻
-
-🎯 **How It Works**
-
-**Input:**
-A single record (or batch) of monthly weather data, including:
-	•	Mean / max / min temperature
-	•	Rainfall & precipitation
-	•	Cooling Degree Days
-	•	Month & year
-
-Output:
-A predicted number of fires for that month.
-
-⸻
-
-🛠️ **Model File**
-
-The trained model is saved as:
-forest_fire_model_aggregated.pkl
-
-🧑‍💻 **Sample Python Code**
-
-import pandas as pd
-import pickle
-
-#Load the model
-with open("path/to/forest_fire_model_aggregated.pkl", "rb") as f:
-    model = pickle.load(f)
-
-#Example input
-X_new = pd.DataFrame([{
-    "Tm": 17.5,                # Mean temperature °C
-    "Tx": 32.0,                # Max temperature °C
-    "Tn": 3.0,                 # Min temperature °C
-    "S": 0.0,                  # Rainfall mm
-    "P": 60.0,                 # Precipitation mm
-    "CDD": 25.0,               # Cooling Degree Days
-    "Weather_Month_Num": 6,    # Month number (May=5, June=6, July=7)
-    "Year": 2024               # Year
-}])
-
-#Predict
-y_pred = model.predict(X_new)
-print("Predicted fires:", y_pred)
-
-📊 **Feature Details**
-**Feature					Description**
-Tm					Mean temperature (°C)
-Tx					Max temperature (°C)
-Tn					Min temperature (°C)
-S					Total Rainfall (mm)
-P					Total Precipitation (mm)
-CDD					Cooling Degree Days
-Weather_Month_Num			Month of weather data (May=5, June=6, July=7)
-Year					Year of observation
-
-**Note**: All columns must exist when calling .predict(). Missing numeric values can be NaN and will be imputed automatically.
-
-🎨 **Frontend Integration**
-	•	Round predictions to whole numbers.
-	•	Bucket predictions into risk levels:
-Risk Tier	Monthly Fires		Typical Response
-🟢 Low Risk	Fewer than 50		Routine local response
-🟡 Moderate	50–150			Pre-position resources, regional support
-🟠 High Risk	150–300			Full deployment, interagency coordination
-🔴 Extreme	Over 300		National/international assistance
-
-Note: Tiers are based on historical averages and are provided as guidance only.
-⸻
-
-🔄 **Future Enhancements**
-	•	Integrate live weather APIs (e.g., OpenWeatherMap)
-	•	Use station-level fire counts
-	•	Add vegetation, drought indices, or satellite data
-	•	Retrain with expanded datasets
 
 ## 📜 License
 
 [MIT License](LICENSE)
-
----
