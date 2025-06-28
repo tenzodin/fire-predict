@@ -122,7 +122,7 @@ Each row = one ~~location~~ station in Ontario
 
 ✅ Core pipeline complete: 
 
- •	**Cleaned historical weather and fire data (2000–2024)**
+ •	**Cleaned historical weather and fire data (2000–2024)**  
  		1. [Data merge script](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merge_weather.py)  
    		2. [Output.csv](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/merged_weather_data_2000_2024.csv)  
 
