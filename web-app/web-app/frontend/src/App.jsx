@@ -4,6 +4,8 @@ import logo from "../img/logo_small.png";          // ← import the logo
 import "./index.css";
 import "leaflet/dist/leaflet.css";
 import MapComponent from "./components/Map";
+import TypingAnimatedText from "./components/TypingText";
+import CallToAction from "./components/CallToAction";
 
 
 function App() {
@@ -62,6 +64,9 @@ function App() {
 
         {/* ---------- main ---------- */}
         <main className="mx-auto mt-8 max-w-4xl p-6">
+            <div className="mt-4 mb-8 flex justify-center">
+  <TypingAnimatedText />
+</div>
           {/* upload card */}
           <div className="rounded-lg bg-gray-800/70 backdrop-blur-md p-6 shadow-md">
           <p className="text-center text-gray-300">
@@ -122,7 +127,22 @@ function App() {
               </table>
             )}
           </div>
+           <CallToAction />
         </main>
+        <footer className="bg-gray-900 text-gray-400 py-6 mt-12 border-t border-gray-700">
+  <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+    <p className="text-sm text-center md:text-left">
+      &copy; {new Date().getFullYear()} FireSight. All rights reserved.
+    </p>
+
+    <div className="mt-4 md:mt-0 flex space-x-4">
+      <a href="#privacy" className="hover:text-white transition">Privacy</a>
+      <a href="#terms" className="hover:text-white transition">Terms</a>
+      <a href="#contact" className="hover:text-white transition">Contact</a>
+    </div>
+  </div>
+</footer>
+
       </div>
     </div>
   );
