@@ -1,17 +1,16 @@
 import { useState } from "react";
+import GradientBackground from "./components/GradientBackground";
+import logo from "../img/logo_small.png";          // ← import the logo
 import "./index.css";
 
 function App() {
   const [file, setFile] = useState(null);
   const [results, setResults] = useState([]);
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
+  const handleFileChange = (e) => setFile(e.target.files[0]);
 
   const handleUpload = async () => {
     if (!file) return;
-
     const formData = new FormData();
     formData.append("file", file);
 
@@ -20,76 +19,108 @@ function App() {
         method: "POST",
         body: formData,
       });
-      const data = await res.json();
-      setResults(data);
+      setResults(await res.json());
     } catch (err) {
       console.error("Upload failed", err);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 font-sans">
-      <header className="bg-white shadow p-6">
-        <h1 className="text-3xl font-bold text-center text-red-600">
-          🔥 Forest Fire Predictor
-        </h1>
-        <p className="text-center mt-2 text-gray-600">
-          Upload a CSV file with environmental data and view risk zones.
-        </p>
-      </header>
+    <div className="relative min-h-screen w-full font-sans text-white bg-gray-900 overflow-y-auto">
+      {/* gradient background */}
+      <GradientBackground />
 
-      <main className="p-6 max-w-4xl mx-auto">
-        {/* Upload section */}
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-2">Upload CSV</h2>
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleFileChange}
-            className="mb-4"
-          />
-          <button
-            onClick={handleUpload}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
-          >
-            Predict Fire Risk
-          </button>
-        </div>
+      {/* main content */}
+      <div className="relative z-10">
+        {/* ---------- header ---------- */}
+       <header className="bg-gray-900/80 backdrop-blur-md shadow-md px-6 py-3">
+  <div className="max-w-6xl mx-auto flex items-center justify-between">
+    {/* Logo */}
+    <div className="flex items-center space-x-3">
+      <img
+        src={logo}
+        alt="FireSight logo"
+        className="h-12 w-auto"
+      />
+      <span className="text-white text-2xl font-bold">FireSight</span>
+    </div>
 
-        {/* Map Placeholder */}
-        <div className="mt-10 bg-gray-200 h-80 rounded-md flex items-center justify-center">
-          <span className="text-gray-600">🗺️ Map visualization will go here</span>
-        </div>
+    {/* Navigation */}
+    <nav className="space-x-6 hidden md:flex">
+      <a href="#home" className="text-gray-300 hover:text-white transition">Home</a>
+      <a href="#about" className="text-gray-300 hover:text-white transition">About</a>
+      <a href="#upload" className="text-gray-300 hover:text-white transition">Upload</a>
+      <a href="#contact" className="text-gray-300 hover:text-white transition">Contact</a>
+    </nav>
+  </div>
+</header>
 
-        {/* Results section */}
-        <div className="mt-10">
-          <h2 className="text-xl font-semibold mb-4">Prediction Results</h2>
-          {results.length === 0 ? (
-            <p className="text-gray-500">No results yet. Upload a file above.</p>
-          ) : (
-            <table className="w-full border rounded overflow-hidden shadow text-sm">
-              <thead className="bg-red-600 text-white">
-                <tr>
-                  <th className="p-2 text-left">Lat</th>
-                  <th className="p-2 text-left">Lon</th>
-                  <th className="p-2 text-left">Risk %</th>
-                  <th className="p-2 text-left">Explanation</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white">
-                {results.map((row, i) => (
-                  <tr key={i} className="border-b">
-                    <td className="p-2">{row.lat}</td>
-                    <td className="p-2">{row.lon}</td>
-                    <td className="p-2">{(row.risk_probability * 100).toFixed(1)}%</td>
-                    <td className="p-2">{row.explanation || "–"}</td>
+
+
+        {/* ---------- main ---------- */}
+        <main className="mx-auto mt-8 max-w-4xl p-6">
+          {/* upload card */}
+          <div className="rounded-lg bg-gray-800/70 backdrop-blur-md p-6 shadow-md">
+          <p className="text-center text-gray-300">
+            Upload a CSV file with environmental data and view risk zones.
+          </p>
+            <h2 className="mb-2 text-xl font-semibold">Upload CSV</h2>
+            <input
+              type="file"
+              accept=".csv"
+              onChange={handleFileChange}
+              className="mb-4 w-full bg-gray-700 text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-red-500 file:text-white hover:file:bg-red-600"
+            />
+            <button
+              onClick={handleUpload}
+              disabled={!file}
+              className={`mt-2 rounded px-4 py-2 font-medium ${
+                file
+                  ? "bg-red-600 hover:bg-red-700 text-white"
+                  : "cursor-not-allowed bg-red-500 text-gray-200"
+              }`}
+            >
+              Predict Fire Risk
+            </button>
+          </div>
+
+          {/* map placeholder */}
+          <div className="mt-10 flex h-80 items-center justify-center rounded-md bg-gray-800/60 backdrop-blur">
+            <span className="text-gray-400">🗺️ Map visualization will go here</span>
+          </div>
+
+          {/* results table */}
+          <div className="mt-10">
+            <h2 className="mb-4 text-xl font-semibold">Prediction Results</h2>
+            {results.length === 0 ? (
+              <p className="text-gray-400">No results yet. Upload a file above.</p>
+            ) : (
+              <table className="w-full overflow-hidden rounded shadow text-sm">
+                <thead className="bg-red-600 text-white">
+                  <tr>
+                    <th className="p-2 text-left">Lat</th>
+                    <th className="p-2 text-left">Lon</th>
+                    <th className="p-2 text-left">Risk %</th>
+                    <th className="p-2 text-left">Explanation</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-      </main>
+                </thead>
+                <tbody className="bg-gray-800/70 text-white">
+                  {results.map((row, i) => (
+                    <tr key={i} className="border-b border-gray-700 hover:bg-gray-700/40">
+                      <td className="p-2">{row.lat}</td>
+                      <td className="p-2">{row.lon}</td>
+                      <td className="p-2">
+                        {(row.risk_probability * 100).toFixed(1)}%
+                      </td>
+                      <td className="p-2">{row.explanation || "–"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
