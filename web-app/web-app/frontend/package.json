@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "framer-motion": "^12.19.2",
+=======
+>>>>>>> 5f6f5a8508a1ef94de9aafa025224a2eb778e62d
     "leaflet": "^1.9.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
