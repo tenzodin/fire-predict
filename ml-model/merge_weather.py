@@ -45,6 +45,6 @@ for file in files:
 result = pd.concat(dfs, ignore_index=True)
 
 # Save to CSV
-result.to_csv("merged_weather_data.csv", index=False)
+result.to_csv("merged_weather_data_2000_2024.csv", index=False)
 
 print("✅ Merged CSV created: merged_weather_data.csv")
