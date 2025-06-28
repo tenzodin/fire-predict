@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Load your merged data (update this filename if needed)
+# Load your merged data
 df = pd.read_csv("ml-model/weather_fire_merged_shifted.csv")
 
 print("✅ Raw data loaded:")
