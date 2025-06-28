@@ -15,6 +15,8 @@ export default function App() {
   const [prediction,  setPrediction] = useState(null);   // ← single value
   const [pending,     setPending]    = useState(false);  // UX spinner
   const [loading, setLoading] = useState(true); // new state for initial page load
+  const API = import.meta.env.VITE_API_URL;
+
 
 useEffect(() => {
   const timer = setTimeout(() => setLoading(false), 1500); // 1.5 second delay
