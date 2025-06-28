@@ -30,12 +30,12 @@ An AI-powered web app that predicts and visualizes wildfire risk across geograph
 
 ```mermaid
 graph LR
-A[User CSV Upload (Frontend)] --> B[FastAPI API (Backend)]
-B --> C[ML Model (.pkl)]
-C --> D[Fire Risk Probabilities]
-D --> E[OpenAI GPT (Explain Prediction)]
-E --> F[Map + Tooltip Display (Frontend)]
-````
+A(User CSV Upload - Frontend) --> B(FastAPI API - Backend)
+B --> C(ML Model - .pkl)
+C --> D(Fire Risk Probabilities)
+D --> E(OpenAI GPT Explanation)
+E --> F(Map + Tooltip Display - Frontend)
+
 
 ---
 
