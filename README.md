@@ -214,11 +214,11 @@ print("Predicted fires:", y_pred)
 
 ## 👥 Team
 
-| Role              | Member                  |
-| ----------------- | ----------------------- |
-| 🔧 ML & Backend   | Madison Zhang & Preethi |
-| 💻 Frontend UI    | Tenzing Woser           |
-| 🤖 AI Integration | \[Teammate 3]           |
+| Member                  |
+| ----------------------- |
+| Madison Zhang & Preethi |
+| Tenzing Woser           |
+| Preethi Kamalakkannan   |
 
 ---
 
