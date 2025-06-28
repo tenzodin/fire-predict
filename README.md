@@ -131,12 +131,14 @@ Each row = one ~~location~~ station in Ontario
    		2. [Output.csv](https://github.com/tenzodin/fire-predict/blob/89b0ab9d55060cadd617a7bc0f9563c5b75cbdf9/ml-model/fire_counts_clean.csv)  
  
 
- •	**Merged dataset ready for training**  
+ •	**Merged dataset ready for training (2000 to 2023)**  
 		1.  [Merge weather data and number of fires script](https://github.com/tenzodin/fire-predict/blob/821c657d398b6d6f0ca18d96861acc5a18297b6f/ml-model/merge_pair.py)  
   		2. [Merged data output.csv](https://github.com/tenzodin/fire-predict/blob/821c657d398b6d6f0ca18d96861acc5a18297b6f/ml-model/weather_fire_merged_shifted.csv)  
        		3. [Aggregate per station data in one line per month script](https://github.com/tenzodin/fire-predict/blob/3353aa610dcb6f07ea48e4ba8a33c171ec5d8df2/ml-model/aggregate_weather_fire.py)  
      		4.  [Aggregated data output.csv](https://github.com/tenzodin/fire-predict/blob/3353aa610dcb6f07ea48e4ba8a33c171ec5d8df2/ml-model/weather_fire_aggregated.csv)  
-    
+
+Note: number of fires in 2023 were not specified by each month - therefore excluded from the final dataset to train ML Model
+
 •	**Feed dataset to ML model:**[Training script](https://github.com/tenzodin/fire-predict/blob/dd1a6c79fa362b41da64c9e7e8e2f9dfaf2db26b/ml-model/train_model_aggregated.py)  
 
 •	**Test the model with demo data**  
