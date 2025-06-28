@@ -2,6 +2,9 @@ import { useState } from "react";
 import GradientBackground from "./components/GradientBackground";
 import logo from "../img/logo_small.png";          // ← import the logo
 import "./index.css";
+import "leaflet/dist/leaflet.css";
+import MapComponent from "./components/Map";
+
 
 function App() {
   const [file, setFile] = useState(null);
@@ -85,8 +88,8 @@ function App() {
           </div>
 
           {/* map placeholder */}
-          <div className="mt-10 flex h-80 items-center justify-center rounded-md bg-gray-800/60 backdrop-blur">
-            <span className="text-gray-400">🗺️ Map visualization will go here</span>
+          <div className="mt-10 flex h-100 items-center justify-center rounded-md bg-gray-800/60 backdrop-blur">
+             <MapComponent />
           </div>
 
           {/* results table */}
