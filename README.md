@@ -208,7 +208,7 @@ print("Predicted fires:", y_pred)
 
 ## 📍 Live Demo
 
-* **Frontend**: [https://your-frontend.vercel.app](http://fire-predict.vercel.app/)](#)
+* **Frontend**: [https://fire-predict.vercel.app](http://fire-predict.vercel.app/)](#)
 
 ---
 
