@@ -19,9 +19,9 @@ An AI-powered web app that predicts and visualizes wildfire risk across geograph
 1. Upload a `.csv` file containing weather data for selected locations (temperature, precipitation, etc.).~~location + environmental data (e.g. temperature, humidity, wind)~~
 2. The ML model returns a **predicted wildfire occurrence tier** (e.g., low / medium / high) for the next month in Ontario.~~**fire risk score** (probability from 0 to 1) for each point~~
 3. The frontend renders a **color-coded map** using Leaflet:
-   - 🟥 Red = ~~high fire risk~~ higher expected number of fires (to update: 100?)
-   - 🟨 Yellow = ~~medium risk~~ moderate expected number
-   - 🟩 Green = ~~low risk~~ lower expected number
+   - 🟥 Red = ~~high fire risk~~ higher expected number of fires >=
+   - 🟨 Yellow = ~~medium risk~~ moderate expected number 50~100
+   - 🟩 Green = ~~low risk~~ lower expected number <=50;
 4. Each point also gets a **GPT-generated explanation and prevention tip**
 
 ---
@@ -126,8 +126,8 @@ Each row = one ~~location~~ station in Ontario
 
 🛠️ Next steps before pitch:
 	•	~~Train regression/classification model to predict monthly fire occurrence tiers~~
-	•	Connect ML predictions to backend API
-	•	Generate example predictions for key stations
+	•	~~Connect ML predictions to backend API~~
+	•	~~Generate example predictions for key stations~~
 	•	Display risk tiers on the Leaflet map
 	•	Polish frontend upload + result display
 ---
@@ -197,11 +197,13 @@ Year					Year of observation
 🎨 **Frontend Integration**
 	•	Round predictions to whole numbers.
 	•	Bucket predictions into risk levels:
-	•	<50 fires = Low
-	•	50–200 fires = Medium
-	•	>200 fires = High
-	•	Display on the map using color codes.
+Risk Tier	Monthly Fires		Typical Response
+🟢 Low Risk	Fewer than 50		Routine local response
+🟡 Moderate	50–150			Pre-position resources, regional support
+🟠 High Risk	150–300			Full deployment, interagency coordination
+🔴 Extreme	Over 300		National/international assistance
 
+Note: Tiers are based on historical averages and are provided as guidance only.
 ⸻
 
 🔄 **Future Enhancements**
