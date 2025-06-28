@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 
 function TypingText({
   words = [
+    "AI meets Climate",
+    "Ontario's Fire Forecast", 
     "Scanning for wildfire risks…",
     "Predicting environmental hazards…",
     "Analyzing temperature, humidity, wind…",

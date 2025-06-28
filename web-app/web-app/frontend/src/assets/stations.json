@@ -1,0 +1,352 @@
+[
+  {
+    "Y": 46.3532,
+    "X": -82.5566,
+    "FACILITY_NAME": "Elliot Lake FAB"
+  },
+  {
+    "Y": 51.0344,
+    "X": -93.8629,
+    "FACILITY_NAME": "Red Lake FMH"
+  },
+  {
+    "Y": 50.3061,
+    "X": -89.0309,
+    "FACILITY_NAME": "Armstrong AB"
+  },
+  {
+    "Y": 49.8262869,
+    "X": -92.7371591,
+    "FACILITY_NAME": "Dryden RFC"
+  },
+  {
+    "Y": 49.709189,
+    "X": -83.6932097,
+    "FACILITY_NAME": "Hearst - Airbase"
+  },
+  {
+    "Y": 46.352446,
+    "X": -82.5565515,
+    "FACILITY_NAME": "Elliot Lake - Airbase"
+  },
+  {
+    "Y": 48.4998335,
+    "X": -81.1801219,
+    "FACILITY_NAME": "Timmins FMH"
+  },
+  {
+    "Y": 48.3777869,
+    "X": -89.3323244,
+    "FACILITY_NAME": "Thunder Bay - Airbase"
+  },
+  {
+    "Y": 47.977395,
+    "X": -84.7858976,
+    "FACILITY_NAME": "Wawa FMH"
+  },
+  {
+    "Y": 51.0668344,
+    "X": -93.7912996,
+    "FACILITY_NAME": "Red Lake - Airbase"
+  },
+  {
+    "Y": 45.5415571,
+    "X": -78.6947543,
+    "FACILITY_NAME": "Smoke Lake - Hangar"
+  },
+  {
+    "Y": 49.7836,
+    "X": -86.9288,
+    "FACILITY_NAME": "Greenstone FMH"
+  },
+  {
+    "Y": 50.0754,
+    "X": -91.9187,
+    "FACILITY_NAME": "Sioux Lookout FMH"
+  },
+  {
+    "Y": 49.0578223,
+    "X": -81.0274032,
+    "FACILITY_NAME": "Cochrane FMH"
+  },
+  {
+    "Y": 46.5082153,
+    "X": -84.3330617,
+    "FACILITY_NAME": "Sault Ste. Marie PFC"
+  },
+  {
+    "Y": 49.8263301,
+    "X": -92.7347991,
+    "FACILITY_NAME": "Dryden - Hangar"
+  },
+  {
+    "Y": 44.9697739,
+    "X": -79.3079047,
+    "FACILITY_NAME": "Muskoka - Hangar"
+  },
+  {
+    "Y": 49.193,
+    "X": -89.431,
+    "FACILITY_NAME": "Rinker Lake FAB"
+  },
+  {
+    "Y": 46.4888536,
+    "X": -84.4927126,
+    "FACILITY_NAME": "Sault Ste. Marie - Hangar"
+  },
+  {
+    "Y": 49.4181112,
+    "X": -82.4701032,
+    "FACILITY_NAME": "Kapuskasing - Airbase"
+  },
+  {
+    "Y": 44.9693237,
+    "X": -79.3077505,
+    "FACILITY_NAME": "Muskoka - Airbase"
+  },
+  {
+    "Y": 50.2716,
+    "X": -90.6761,
+    "FACILITY_NAME": "Savant Lake FAB"
+  },
+  {
+    "Y": 49.8266302,
+    "X": -92.7382395,
+    "FACILITY_NAME": "Dryden FMH"
+  },
+  {
+    "Y": 49.7923085,
+    "X": -94.3551772,
+    "FACILITY_NAME": "Kenora - Airbase"
+  },
+  {
+    "Y": 48.56758,
+    "X": -81.3687837,
+    "FACILITY_NAME": "Timmins - Hangar"
+  },
+  {
+    "Y": 49.416667,
+    "X": -82.433333,
+    "FACILITY_NAME": "Kapuskasing FAB"
+  },
+  {
+    "Y": 50.7663,
+    "X": -87.8593,
+    "FACILITY_NAME": "Ogoki FAB"
+  },
+  {
+    "Y": 46.3621268,
+    "X": -79.4222129,
+    "FACILITY_NAME": "North Bay - Airbase"
+  },
+  {
+    "Y": 45.1109277,
+    "X": -78.6463981,
+    "FACILITY_NAME": "Stanhope - Airbase"
+  },
+  {
+    "Y": 48.5676011,
+    "X": -81.3694466,
+    "FACILITY_NAME": "Timmins - Airbase"
+  },
+  {
+    "Y": 43.6754091,
+    "X": -79.6274336,
+    "FACILITY_NAME": "Pearson Airport - Airbase"
+  },
+  {
+    "Y": 49.4077,
+    "X": -91.6331,
+    "FACILITY_NAME": "Ignace FAB"
+  },
+  {
+    "Y": 48.3792241,
+    "X": -89.3324335,
+    "FACILITY_NAME": "Thunder Bay FMH"
+  },
+  {
+    "Y": 50.7791,
+    "X": -91.7938,
+    "FACILITY_NAME": "Socket Lake FAB"
+  },
+  {
+    "Y": 49.0545,
+    "X": -93.0001,
+    "FACILITY_NAME": "Vedette Lake FAB"
+  },
+  {
+    "Y": 48.379,
+    "X": -89.3324,
+    "FACILITY_NAME": "Thunder Bay PLC"
+  },
+  {
+    "Y": 48.7711511,
+    "X": -91.6380635,
+    "FACILITY_NAME": "Atikokan - Airbase"
+  },
+  {
+    "Y": 48.3777232,
+    "X": -89.3328748,
+    "FACILITY_NAME": "Thunder Bay - Hangar"
+  },
+  {
+    "Y": 49.2124443,
+    "X": -84.7756577,
+    "FACILITY_NAME": "Hornepayne FAB"
+  },
+  {
+    "Y": 47.8176367,
+    "X": -83.3596809,
+    "FACILITY_NAME": "Chapleau - Airbase"
+  },
+  {
+    "Y": 49.0856051,
+    "X": -85.8543725,
+    "FACILITY_NAME": "Manitouwadge - Airbase"
+  },
+  {
+    "Y": 50.2965113,
+    "X": -88.911983,
+    "FACILITY_NAME": "Armstrong - Airbase"
+  },
+  {
+    "Y": 51.2884902,
+    "X": -80.6131761,
+    "FACILITY_NAME": "Moosonee - Hangar"
+  },
+  {
+    "Y": 51.7232,
+    "X": -93.6507,
+    "FACILITY_NAME": "Bak Lake FAB"
+  },
+  {
+    "Y": 51.7267000000001,
+    "X": -91.8280999999999,
+    "FACILITY_NAME": "Cat Lake FAB"
+  },
+  {
+    "Y": 46.617912,
+    "X": -80.7995568,
+    "FACILITY_NAME": "Sudbury RFC"
+  },
+  {
+    "Y": 46.6177733,
+    "X": -80.7996456,
+    "FACILITY_NAME": "Sudbury FMH"
+  },
+  {
+    "Y": 49.826173,
+    "X": -92.7365529,
+    "FACILITY_NAME": "Dryden - Airbase"
+  },
+  {
+    "Y": 49.7924,
+    "X": -94.3563,
+    "FACILITY_NAME": "Kenora FMH"
+  },
+  {
+    "Y": 48.6107,
+    "X": -93.3791,
+    "FACILITY_NAME": "Fort Frances FMH"
+  },
+  {
+    "Y": 48.6502628,
+    "X": -93.4381543,
+    "FACILITY_NAME": "Fort Frances - Airbase"
+  },
+  {
+    "Y": 49.4300694,
+    "X": -91.7119909,
+    "FACILITY_NAME": "Ignace - Airbase"
+  },
+  {
+    "Y": 49.7836,
+    "X": -86.9288,
+    "FACILITY_NAME": "Greenstone - Airbase"
+  },
+  {
+    "Y": 48.636,
+    "X": -85.373,
+    "FACILITY_NAME": "Crocker Lake FAB"
+  },
+  {
+    "Y": 51.4491,
+    "X": -90.2198,
+    "FACILITY_NAME": "Pickle Lake AB"
+  },
+  {
+    "Y": 47.8493742,
+    "X": -83.394382,
+    "FACILITY_NAME": "Chapleau FMH"
+  },
+  {
+    "Y": 46.6182775,
+    "X": -80.7996141,
+    "FACILITY_NAME": "Sudbury - Airbase"
+  },
+  {
+    "Y": 51.4491,
+    "X": -90.2198,
+    "FACILITY_NAME": "Pickle Lake - Airbase"
+  },
+  {
+    "Y": 47.0724021,
+    "X": -79.8227730999999,
+    "FACILITY_NAME": "Link Lake FAB"
+  },
+  {
+    "Y": 46.8755513,
+    "X": -83.5841988,
+    "FACILITY_NAME": "Ranger Lake FAB"
+  },
+  {
+    "Y": 47.6761981,
+    "X": -81.7215076,
+    "FACILITY_NAME": "Gogama FAB"
+  },
+  {
+    "Y": 49.085213,
+    "X": -85.8541148,
+    "FACILITY_NAME": "Manitouwadge FAB"
+  },
+  {
+    "Y": 45.1109277,
+    "X": -78.6463981,
+    "FACILITY_NAME": "Haliburton FMH"
+  },
+  {
+    "Y": 49.6882,
+    "X": -83.6579,
+    "FACILITY_NAME": "Hearst AB"
+  },
+  {
+    "Y": 46.365445,
+    "X": -79.40626,
+    "FACILITY_NAME": "North Bay FMH"
+  },
+  {
+    "Y": 48.7710493,
+    "X": -91.6375179,
+    "FACILITY_NAME": "Atikokan FAB"
+  },
+  {
+    "Y": 46.4837527,
+    "X": -84.4929777,
+    "FACILITY_NAME": "Sault Ste Marie - AIrbase"
+  },
+  {
+    "Y": 45.2598122,
+    "X": -79.8302828,
+    "FACILITY_NAME": "Parry Sound FAB"
+  },
+  {
+    "Y": 48.2067761,
+    "X": -79.9915388,
+    "FACILITY_NAME": "Kirkland Lake FAB"
+  },
+  {
+    "Y": 45.8613595,
+    "X": -77.2514697,
+    "FACILITY_NAME": "Pembroke FAB"
+  }
+]
