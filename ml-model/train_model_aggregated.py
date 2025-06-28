@@ -33,7 +33,7 @@ print(f"✅ MAE on test set: {mae:.2f}")
 
 # Save model
 import pickle
-save_path = "users/wentaozhang/downloads/solutionhack1"
+save_path = "/Users/wentaozhang/Downloads/solutionhack1/forest_fire_model_aggregated.pkl"
 with open(save_path,"wb") as f:
     pickle.dump(model, f)
 print("✅ Model saved at users/wentaozhang/downloads/solutionhack1")
