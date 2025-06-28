@@ -216,7 +216,7 @@ print("Predicted fires:", y_pred)
 
 | Member                  |
 | ----------------------- |
-| Madison Zhang & Preethi |
+| Madison Zhang           |
 | Tenzing Woser           |
 | Preethi Kamalakkannan   |
 
